@@ -10,8 +10,8 @@ namespace ChooseYourOwnAdventure
     {
         static void Main(string[] args)
         {
-            Activity workflow1 = new Workflow1();
-            WorkflowInvoker.Invoke(workflow1);
+            Activity AdventureSetup2 = new AdventureSetup2();
+            WorkflowInvoker.Invoke(AdventureSetup2);
         }
     }
 }

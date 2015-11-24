@@ -72,10 +72,10 @@
     </Assign>
     <Switch x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <Switch.Default>
-        <Sequence>
-          <WriteLine Text="I'm looking for a Yes, or a No.  Try again." sap2010:WorkflowViewState.IdRef="WriteLine_7" />
-          <WriteLine Text="Are you ready to rock?" sap2010:WorkflowViewState.IdRef="WriteLine_8" />
-          <Assign>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_7" Text="I'm looking for a Yes, or a No.  Try again." />
+          <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_8" Text="Are you ready to rock?" />
+          <Assign sap2010:WorkflowViewState.IdRef="Assign_4">
             <Assign.To>
               <OutArgument x:TypeArguments="x:String">
                 <mca:CSharpReference x:TypeArguments="x:String">_ready</mca:CSharpReference>
@@ -86,9 +86,7 @@
                 <mca:CSharpValue x:TypeArguments="x:String">Console.ReadLine()</mca:CSharpValue>
               </InArgument>
             </Assign.Value>
-            <sap2010:WorkflowViewState.IdRef>Assign_4</sap2010:WorkflowViewState.IdRef>
           </Assign>
-          <sap2010:WorkflowViewState.IdRef>Sequence_3</sap2010:WorkflowViewState.IdRef>
         </Sequence>
       </Switch.Default>
       <Switch.Expression>
@@ -96,33 +94,41 @@
           <mca:CSharpValue x:TypeArguments="x:String">_ready</mca:CSharpValue>
         </InArgument>
       </Switch.Expression>
-      <WriteLine x:Key="Yes" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="Ahhh.  Then get started we must." />
+      <x:Null x:Key="Yes" />
       <WriteLine x:Key="No" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="Well then, young Jedi.  Perhaps you need more time?" />
-      <Sequence x:Key="" sap2010:WorkflowViewState.IdRef="Sequence_2">
-        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="Hey Dummy.  You didn't answer the question!  Try again." />
-        <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="Are you ready to rock?" />
-        <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
-          <Assign.To>
-            <OutArgument x:TypeArguments="x:String">
-              <mca:CSharpReference x:TypeArguments="x:String">_ready</mca:CSharpReference>
-            </OutArgument>
-          </Assign.To>
-          <Assign.Value>
-            <InArgument x:TypeArguments="x:String">
-              <mca:CSharpValue x:TypeArguments="x:String">Console.ReadLine()</mca:CSharpValue>
-            </InArgument>
-          </Assign.Value>
-        </Assign>
+      <Sequence x:Key="" sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <While sap2010:WorkflowViewState.IdRef="While_1">
+          <While.Condition>
+            <mca:CSharpValue x:TypeArguments="x:Boolean">_ready != "Yes"</mca:CSharpValue>
+          </While.Condition>
+          <Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_5" Text="Hey Dummy.  You didn't answer the question!  Try again." />
+            <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="Are you ready to rock?" />
+            <Assign sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">
+                  <mca:CSharpReference x:TypeArguments="x:String">_ready</mca:CSharpReference>
+                </OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">
+                  <mca:CSharpValue x:TypeArguments="x:String">Console.ReadLine()</mca:CSharpValue>
+                </InArgument>
+              </Assign.Value>
+            </Assign>
+          </Sequence>
+        </While>
       </Sequence>
     </Switch>
-    <sads:DebugSymbol.Symbol>d3djOlx1c2Vyc1x0aG9tYXNcZG9jdW1lbnRzXHZpc3VhbCBzdHVkaW8gMjAxNVxQcm9qZWN0c1xDaG9vc2VZb3VyT3duQWR2ZW50dXJlXENob29zZVlvdXJPd25BZHZlbnR1cmVcQWR2ZW50dXJlU2V0dXAueGFtbCElA3cOAgEBKwUrYgIBPiwFNw4CATU4BTwRAgEwPQVIDgIBJ0kFdQ4CAQIrQytfAgE/NAs0WwIBOi8LL1wCATY6CTqPAQIBMUULRVsCASxAC0BXAgEoYAtgTwIBA2MHY3YCASVkB2SIAQIBI2UHdBICARVLCVwUAgEHY1FjcwIBJmRQZIUBAgEkZglmgwECASFnCWdiAgEfaAlzEgIBFkwLTHkCARNNC01kAgERTgtaFAIBCGZHZoABAgEiZ0dnXwIBIHAPcF8CARtrD2tbAgEXTBtMSAIBFE0bTTMCARJWEVZhAgENURFRXQIBCQ==</sads:DebugSymbol.Symbol>
+    <WriteLine Text="Ahhh.  Then get started we must." sap2010:WorkflowViewState.IdRef="WriteLine_9" />
+    <sads:DebugSymbol.Symbol>d3dDOlxVc2Vyc1xUaG9tYXNcRG9jdW1lbnRzXFZpc3VhbCBTdHVkaW8gMjAxNVxQcm9qZWN0c1xDaG9vc2VZb3VyT3duQWR2ZW50dXJlXENob29zZVlvdXJPd25BZHZlbnR1cmVcQWR2ZW50dXJlU2V0dXAueGFtbCQlA30OAgEBKwUrYgIBRCwFNw4CATs4BTwRAgE2PQVIDgIBLUkFeg4CAQR7BXtoAgECK0MrXwIBRTQLNFsCAUAvCy9cAgE8Ogk6jwECATdFC0VbAgEyQAtAVwIBLl4LXk8CAQViB2KIAQIBK2MHeRICARdLCVoUAgEJexV7NwIBA2JQYoUBAgEsZAl4EQIBGEwLTHkCARVNC01kAgETTgtZFAIBCmgLdxYCAR1mDWZbAgEZTElMdgIBFk1JTWECARRWEVZhAgEPURFRXQIBC2kNaYcBAgEpag1qZgIBJ2sNdhYCAR5pS2mEAQIBKmpLamMCAShzE3NjAgEjbhNuXwIBHw==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
-      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="476,62" />
-      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="476,62" />
-      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="476,62" />
-      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="476,62" />
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="506,62" />
+      <sap2010:ViewStateData Id="Assign_1" sap:VirtualizedContainerService.HintSize="506,62" />
+      <sap2010:ViewStateData Id="WriteLine_2" sap:VirtualizedContainerService.HintSize="506,62" />
+      <sap2010:ViewStateData Id="Assign_2" sap:VirtualizedContainerService.HintSize="506,62" />
       <sap2010:ViewStateData Id="WriteLine_7" sap:VirtualizedContainerService.HintSize="242,62" />
       <sap2010:ViewStateData Id="WriteLine_8" sap:VirtualizedContainerService.HintSize="242,62" />
       <sap2010:ViewStateData Id="Assign_4" sap:VirtualizedContainerService.HintSize="242,62" />
@@ -133,7 +139,6 @@
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="WriteLine_3" sap:VirtualizedContainerService.HintSize="210,62" />
       <sap2010:ViewStateData Id="WriteLine_4" sap:VirtualizedContainerService.HintSize="210,62" />
       <sap2010:ViewStateData Id="WriteLine_5" sap:VirtualizedContainerService.HintSize="242,62" />
       <sap2010:ViewStateData Id="WriteLine_6" sap:VirtualizedContainerService.HintSize="242,62" />
@@ -142,18 +147,28 @@
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="Switch`1_1" sap:VirtualizedContainerService.HintSize="476,618" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="498,1150">
+      <sap2010:ViewStateData Id="While_1" sap:VirtualizedContainerService.HintSize="464,550" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="486,674">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="ChooseYourOwnAdventure.Workflow1_1" sap:VirtualizedContainerService.HintSize="538,1230" />
+      <sap2010:ViewStateData Id="Switch`1_1" sap:VirtualizedContainerService.HintSize="506,904" />
+      <sap2010:ViewStateData Id="WriteLine_9" sap:VirtualizedContainerService.HintSize="506,62" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="528,1538">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="ChooseYourOwnAdventure.Workflow1_1" sap:VirtualizedContainerService.HintSize="538,1447" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
